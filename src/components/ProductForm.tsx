@@ -25,7 +25,7 @@ const initialValues: ProductFormValues = {
   UNIT: "",
 };
 
-const webhookUrl = process.env.N8N_WEBHOOK_URL; // <- Replace this
+const webhookUrl = import.meta.env.N8N_WEBHOOK_URL; // <- Replace this
 
 export default function ProductForm() {
   const handleSubmit = async (
