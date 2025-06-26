@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useEffect } from "react";
 
 interface ProductFormValues {
   BARCODE: string;
@@ -25,9 +26,12 @@ const initialValues: ProductFormValues = {
   UNIT: "",
 };
 
-const webhookUrl = import.meta.env.N8N_WEBHOOK_URL; // <- Replace this
+const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
 
 export default function ProductForm() {
+  useEffect(() => {
+    console.log(webhookUrl);
+  }, []);
   const handleSubmit = async (
     values: ProductFormValues,
     { resetForm }: FormikHelpers<ProductFormValues>
